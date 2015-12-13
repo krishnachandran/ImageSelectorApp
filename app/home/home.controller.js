@@ -7,7 +7,7 @@
 
   function HomeController($scope) {
     var vm = this;
-    vm.pro_image;
+    vm.pro_image = {};
     vm.showModal = false;
     vm.showStickerDialog = false;
     vm.stickersArray = JSON.parse(localStorage.getItem("stickers")) || [];
@@ -19,8 +19,8 @@
       vm.showModal = true;
 
     }
-    
-    vm.closeStickerDialog = function() {
+
+    vm.closeStickerDialog = function () {
       vm.showStickerDialog = false;
     }
 
@@ -28,12 +28,26 @@
       vm.showStickerDialog = true;
 
     }
-    
+
+    /**
+     * Check whether profile image is loaded
+     * @param   {[[Type]]} obj [[Description]]
+     * @returns {Boolean}  [[Description]]
+     */
+    var profileLoaded = function (obj) {
+      for (var prop in obj) {
+        if (obj.hasOwnProperty(prop))
+          return false;
+      }
+
+      return true;
+    }
+
     /**
      *Delete the sticker selected
      * @param {[[Type]]} sticker [[Description]]
      */
-    vm.removeSticker = function(sticker, index) {
+    vm.removeSticker = function (index) {
       //vm.stickersArray.pop(sticker);
       vm.stickersArray.splice(index, 1);
     }
@@ -44,7 +58,7 @@
     vm.clearAll = function () {
       vm.stickersArray = [];
       vm.pro_image = "";
-      $scope.apply();
+      vm.pro_image = {};
     }
 
     /**
@@ -59,16 +73,16 @@
         }
         vm.stickersArray = vm.stickersArray || [];
         vm.stickersArray.push(stickerObject);
-        
+
         localStorage.setItem("stickers", JSON.stringify(vm.stickersArray));
-        
+
         /*for (var member in stickerObject) {
           delete stickerObject[member];
         }*/
         vm.stickersLibrary = [];
         vm.stickerTitle = "";
-        
-        
+
+
         vm.closeStickerDialog();
       } else {
         alert("Please fill in all fields and submit");

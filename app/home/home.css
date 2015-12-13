@@ -46,17 +46,22 @@ a {
   font-size: small;
 }
 
+.stickerList {
+  position: absolute;
+}
+
 div.stickerList input {
-    display:none;
+  display: none;
 }
 
 div.stickerList:hover input {
-    display: block;
+  display: block;
 }
 
 div.stickerList input.delete {
-    top:0;
-    right:0;
+  top: 0;
+  right: 0;
+  position: absolute;
 }
 
 .image_wrapper {
@@ -140,4 +145,8 @@ div.stickerList input.delete {
 .stickerInput {
   padding-top: 1em;
   padding-bottom: 1em;
+}
+
+input[type=file] {
+  color: transparent;
 }

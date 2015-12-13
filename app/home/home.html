@@ -1,13 +1,14 @@
 <div class="wrapper row">
   <div class="col-xs-8 col-sm-8 col-md-8 photo-area">
-    <button ng-if="vm.pro_image.length > 0" ng-click="vm.clearAll()" ng-show="!!vm.pro_image">Start Over !</button>
+    <button ng-if="vm.pro_image.length > 0" ng-click="vm.clearAll()">Start Over !</button>
 
     <br />
     <span>Pick an image-file:</span>
+    <br />
     <input type="file" title="Select image from here" ng-model="vm.pro_image" accept="image/*" file-reader />
     <br />
-    <div class="image_wrapper" drop-space>
-      <img id="profileImage" ng-src="{{vm.pro_image}}" />
+    <div ng-if="!vm.profileLoaded(vm.pro_image)" class="image_wrapper" drop-space>
+      <img id="profileImage" ng-src="{{vm.pro_image}}" onerror="this.style.display='none'" onload="this.style.display='block'" />
     </div>
     <br />
 
@@ -18,7 +19,7 @@
       <div class="stickerList" ng-repeat="stickers in vm.stickersArray">
         <img id="dragSticker" class="sticker" ng-src="{{stickers.sticker}}" draggable-object />
         <span>{{stickers.title}}</span>
-        <input class="delete" type="button" ng-click="vm.removeSticker(stickers, $index)" value="Delete" />
+        <input class="delete" type="button" ng-click="vm.removeSticker($index)" value="Delete" />
       </div>
     </div>
   </div>
