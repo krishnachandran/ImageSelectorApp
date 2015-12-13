@@ -2,16 +2,6 @@
   margin-top: 50px;
 }
 
-.sticker-section {
-  border: 1px solid black;
-  height: 80vh;
-  max-height: 100%;
-  overflow-y: auto;
-  width: 150px;
-  float: right;
-  background-color: floralwhite;
-}
-
 button {
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -28,6 +18,7 @@ button {
   padding: 10px 20px 10px 20px;
   border: solid #1f628d 2px;
   text-decoration: none;
+  font-size: small;
 }
 
 button:hover {
@@ -40,14 +31,43 @@ button:hover {
   text-decoration: none;
 }
 
+.stickerButton {
+  margin-bottom: 1em
+}
+
+.sticker-area {
+  padding-top: 2em;
+  border: 1px solid black;
+  height: 80vh;
+  max-height: 100%;
+  overflow-y: auto;
+  width: 150px;
+  float: right;
+  background-color: floralwhite;
+}
+
+.sticker {
+  height: auto;
+  width: auto;
+  max-width: 150px;
+  max-height: 150px;
+  padding-top: 1em;
+}
+
+.pro-text {
+  font-size: medium;
+  font-weight: 600;
+}
+
 a {
   color: #FFFFFF;
   text-decoration: none;
   font-size: small;
 }
 
-.stickerList {
-  position: absolute;
+.stickerList,
+imageBox {
+  position: relative;
 }
 
 div.stickerList input {
@@ -78,8 +98,9 @@ div.stickerList input.delete {
 .sticker {
   height: auto;
   width: auto;
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 150px;
+  max-height: 150px;
+  padding-top: 1em;
 }
 
 .add-sticker {
@@ -101,10 +122,6 @@ div.stickerList input.delete {
 .add-sticker:target {
   opacity: 1;
   pointer-events: auto;
-}
-
-.sticker-area {
-  padding-top: 2em;
 }
 
 .add-sticker > div {

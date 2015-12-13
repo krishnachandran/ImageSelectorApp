@@ -1,3 +1,6 @@
+/**
+ *Droppable directive
+**/
 
 (function () {
   'use strict';

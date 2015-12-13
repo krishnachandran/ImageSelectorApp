@@ -1,4 +1,6 @@
-
+/**
+ *File Reader directive
+**/
 
 (function() {  
   'use strict';

@@ -1,3 +1,7 @@
+/**
+ *Draggable directive
+**/
+
 (function () {
   'use strict';
 
