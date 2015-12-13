@@ -1,0 +1,33 @@
+<div class="wrapper row">
+  <div class="col-xs-8 col-sm-8 col-md-8 photo-area">
+    <button ng-if="vm.pro_image.length > 0" ng-click="vm.clearAll()" ng-show="!!vm.pro_image">Start Over !</button>
+
+    <br />
+    <span>Pick an image-file:</span>
+    <input type="file" title="Select image from here" ng-model="vm.pro_image" accept="image/*" file-reader />
+    <br />
+    <div class="image_wrapper" drop-space>
+      <img id="profileImage" ng-src="{{vm.pro_image}}" />
+    </div>
+    <br />
+
+  </div>
+  <div class="col-xs-4 col-sm-4 col-md-4 sticker-section">
+    <button ><a href="#openStickerDialog">Upload New Sticker</a></button>
+    <div class="sticker-area">
+      <div class="stickerList" ng-repeat="stickers in vm.stickersArray">
+        <img id="dragSticker" class="sticker" ng-src="{{stickers.sticker}}" draggable-object />
+        <span>{{stickers.title}}</span>
+        <input class="delete" type="button" ng-click="vm.removeSticker(stickers, $index)" value="Delete" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="openStickerDialog" class="add-sticker">
+  <div> <a href="#close" title="Close" class="close">X</a>
+    <input type="text" name="title" ng-model="vm.stickerTitle" placeholder="Title"><br>
+    <input class="stickerInput" ng-init="vm.stickersArray = null" type="file" ng-model="vm.sticker" accept="image/*" file-reader>
+    <button id="submit" ng-click="vm.addSticker()">Submit</button>
+  </div>
+</div>
