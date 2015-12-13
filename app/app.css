@@ -4,7 +4,8 @@ body {
 
 
 .header {
-  background-color: #AFC1D3;
+ /* background-color: #AFC1D3;*/
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
 }
 
 #footer {
@@ -14,4 +15,17 @@ body {
   position: fixed;
   bottom: 0;
   text-align: right;
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+}
+
+p {
+  color: white;
+}
+
+a {
+  color: white !important;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  background-color: #4B81A1 !important;
 }
