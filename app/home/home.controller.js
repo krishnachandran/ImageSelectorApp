@@ -5,9 +5,9 @@
     .module('app.controllers')
     .controller('HomeController', HomeController);
 
-  function HomeController($scope) {
+  function HomeController($scope, $state) {
     var vm = this;
-    vm.pro_image = {};
+    vm.pro_image;
     vm.showModal = false;
     vm.showStickerDialog = false;
     vm.stickersArray = JSON.parse(localStorage.getItem("stickers")) || [];
@@ -56,9 +56,7 @@
      * Clear all
      */
     vm.clearAll = function () {
-      vm.stickersArray = [];
-      vm.pro_image = "";
-      vm.pro_image = {};
+      $state.reload();
     }
 
     /**

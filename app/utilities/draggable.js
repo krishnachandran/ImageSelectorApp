@@ -10,16 +10,6 @@
     return {
       restrict: "A",
       link: function (scope, element, attributes, ctlr) {
-        /*element.attr("draggable", true);
-
-        element.bind("dragstart", function (eventObject) {
-          eventObject.dataTransfer.effectAllowed = "copy";
-          eventObject.dataTransfer.setData("text", eventObject.target.id);
-        });
-
-        element.bind("dragend", function (eventObject) {
-
-        });*/
 
         element.draggable({
           cursor: "move",
@@ -28,6 +18,8 @@
           helper: "clone",
           appendTo: "body",
           revert:true,
+          snap: ".image_wrapper",
+          stack: ".sticker",
          /* revert: function (droppedElement) {
             var validDrop = droppedElement && droppedElement.hasClass("image_wrapper");
             return !validDrop;
